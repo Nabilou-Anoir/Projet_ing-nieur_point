@@ -78,9 +78,10 @@ function ajoutePays() {
 }
 
 function refresh() {
-  doAjaxRequest("/api/countries") // Méthode GET par défaut
+  doAjaxRequest("/api/etudiants") // Méthode GET par défaut
     .then((result) => {
-      data.countries = result._embedded.countries;
+      console.log(result);
+      //data.countries = result._embedded.countries;
     })
     .catch(error => alert(error.message));
 }
