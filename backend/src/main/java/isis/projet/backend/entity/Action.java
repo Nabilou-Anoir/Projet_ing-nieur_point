@@ -32,8 +32,8 @@ public class Action {
      * Une Action "appartient" à un seul Referentiel,
      * mais un Referentiel peut avoir plusieurs Actions.
      */
-    @ManyToOne
-    @JoinColumn(name = "id_Referentiel")
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "id_Referentiel", nullable = true)
     private Referentiel referentiel;
 
     /**
