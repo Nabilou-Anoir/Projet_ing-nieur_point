@@ -35,7 +35,6 @@ public class Action {
     @ManyToOne(optional = true)
     @JoinColumn(name = "id_Referentiel", nullable = true)
     private Referentiel referentiel;
-
     /**
      * Relation ManyToOne vers Referent :
      * Une Action est "validée" par un seul Referent,
