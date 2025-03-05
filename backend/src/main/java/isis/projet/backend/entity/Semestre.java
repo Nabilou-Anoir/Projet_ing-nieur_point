@@ -20,7 +20,7 @@ public class Semestre {
     @Column(name = "id_Semestre")
     private Integer idSemestre;
 
-    private LocalDate annee;
+    private Date annee;
 
     private Integer numeroSemestre;
 

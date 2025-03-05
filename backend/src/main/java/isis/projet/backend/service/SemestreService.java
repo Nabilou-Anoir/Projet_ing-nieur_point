@@ -46,6 +46,7 @@ public class SemestreService {
      * @return le Semestre sauvegardé.
      */
     public Semestre save(Semestre semestre) {
+        System.out.println( semestre.toString());
         return semestreRepository.save(semestre);
     }
 

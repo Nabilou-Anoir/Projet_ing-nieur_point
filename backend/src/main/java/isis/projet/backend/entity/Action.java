@@ -33,7 +33,7 @@ public class Action {
      * mais un Referentiel peut avoir plusieurs Actions.
      */
     @ManyToOne
-    @JoinColumn(name = "id_Referentiel")
+    @JoinColumn(name = "id_Referentiel", nullable = true)
     private Referentiel referentiel;
 
     /**

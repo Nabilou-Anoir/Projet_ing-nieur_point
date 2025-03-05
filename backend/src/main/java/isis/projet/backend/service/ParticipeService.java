@@ -15,13 +15,12 @@ import java.util.Optional;
  *
  * Cette classe gère les opérations CRUD sur la table d'association "participe",
  * qui utilise une clé composite (id_Etudiant, id_Action, id_Semestre).
- * Elle intègre également une contrainte métier pour vérifier que la valeur de nbPoints ne dépasse pas 0,50.
+ * Elle intègre également une contrainte métier pour vérifier que la valeur de totalPoints ne dépasse pas 0,50.
  */
 @Service
 @RequiredArgsConstructor
 public class ParticipeService {
 
-    // Injection de la dépendance participeRepository.
     private final ParticipeRepository participeRepository;
 
     /**
@@ -45,15 +44,14 @@ public class ParticipeService {
 
     /**
      * Sauvegarde ou met à jour une participation dans la base de données.
-     * Avant de persister, vérifie que la valeur de nbPoints ne dépasse pas 0,50.
+     * Avant de persister, vérifie que la valeur de totalPoints ne dépasse pas 0,50.
      *
      * @param participe l'objet Participe à sauvegarder.
      * @return la participation sauvegardée.
-     * @throws IllegalArgumentException si nbPoints dépasse 0,50.
+     * @throws IllegalArgumentException si totalPoints dépasse 0,50.
      */
     public Participe save(Participe participe) {
-        // Validation de la contrainte métier : nbPoints ne doit pas dépasser 0,50.
-        validateNbPoints(participe);
+        validateTotalPoints(participe);
         return participeRepository.save(participe);
     }
 
@@ -67,15 +65,15 @@ public class ParticipeService {
     }
 
     /**
-     * Vérifie que la valeur de nbPoints ne dépasse pas 0,50.
+     * Vérifie que la valeur de totalPoints ne dépasse pas 0,50.
      *
      * @param participe la participation à valider.
-     * @throws IllegalArgumentException si nbPoints est supérieur à 0,50.
+     * @throws IllegalArgumentException si totalPoints est supérieur à 0,50.
      */
-    private void validateNbPoints(Participe participe) {
+    private void validateTotalPoints(Participe participe) {
         if (participe.getTotalPoints() != null &&
                 participe.getTotalPoints().compareTo(new BigDecimal("0.50")) > 0) {
-            throw new IllegalArgumentException("nbPoints ne doit pas dépasser 0,50");
+            throw new IllegalArgumentException("totalPoints ne doit pas dépasser 0,50");
         }
     }
 }

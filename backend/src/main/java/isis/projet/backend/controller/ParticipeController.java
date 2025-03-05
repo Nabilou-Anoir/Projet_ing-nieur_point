@@ -1,8 +1,10 @@
 package isis.projet.backend.controller;
 
-import isis.projet.backend.entity.Participe;
-import isis.projet.backend.entity.ParticipeKey;
+import isis.projet.backend.entity.*;
+import isis.projet.backend.service.ActionService;
+import isis.projet.backend.service.EtudiantService;
 import isis.projet.backend.service.ParticipeService;
+import isis.projet.backend.service.SemestreService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,10 @@ public class ParticipeController {
 
     // Injection du service pour la gestion des participations
     private final ParticipeService participeService;
+
+    private final EtudiantService etudiantService;
+    private final SemestreService semestreService;
+    private final ActionService actionService;
 
     /**
      * Récupère la liste de toutes les participations.
@@ -61,6 +67,16 @@ public class ParticipeController {
      */
     @PostMapping
     public Participe create(@RequestBody Participe participe) {
+//        Etudiant etudiant = etudiantService.findById(idEtudiant).get();
+//        Action action = actionService.findById(idAction).get();
+//        Semestre semestre = semestreService.findById(idSemestre).get();
+//
+//        Participe participe = new Participe();
+//        participe.setEtudiant(etudiant);
+//        participe.setAction(action);
+//        participe.setSemestre(semestre);
+
+        System.out.println(participe.toString());
         return participeService.save(participe);
     }
 
