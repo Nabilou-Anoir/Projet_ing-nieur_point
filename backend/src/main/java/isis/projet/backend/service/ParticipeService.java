@@ -73,8 +73,8 @@ public class ParticipeService {
      * @throws IllegalArgumentException si nbPoints est supérieur à 0,50.
      */
     private void validateNbPoints(Participe participe) {
-        if (participe.getNbPoints() != null &&
-                participe.getNbPoints().compareTo(new BigDecimal("0.50")) > 0) {
+        if (participe.getTotalPoints() != null &&
+                participe.getTotalPoints().compareTo(new BigDecimal("0.50")) > 0) {
             throw new IllegalArgumentException("nbPoints ne doit pas dépasser 0,50");
         }
     }

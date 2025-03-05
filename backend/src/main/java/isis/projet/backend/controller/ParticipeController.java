@@ -80,7 +80,7 @@ public class ParticipeController {
                                             @RequestBody Participe updated) {
         ParticipeKey key = new ParticipeKey(idEtudiant, idAction, idSemestre);
         return participeService.findById(key).map(existing -> {
-            existing.setNbPoints(updated.getNbPoints());
+            existing.setTotalPoints(updated.getTotalPoints());
             existing.setNbParticipation(updated.getNbParticipation());
             return ResponseEntity.ok(participeService.save(existing));
         }).orElse(ResponseEntity.notFound().build());

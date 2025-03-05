@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -20,6 +21,8 @@ public class Semestre {
     private Integer idSemestre;
 
     private LocalDate annee;
+
+    private Integer numeroSemestre;
 
     /**
      * Relation bidirectionnelle avec Participe :

@@ -33,8 +33,8 @@ public class Participe {
     @JoinColumn(name = "id_Semestre")
     private Semestre semestre;
 
-    @Column(name = "nbPoints", precision = 3, scale = 2)
-    private BigDecimal nbPoints;
+    @Column(name = "totalPoints", precision = 3, scale = 2)
+    private BigDecimal totalPoints;
 
     private Integer nbParticipation;
 }
